@@ -1,0 +1,19 @@
+/*
+Hola for CSUF computer science Final project
+It integrated Yelp API service and Parse membership service
+
+Credit for
+Yelp API:
+    - WeHungry (Author: maxcampolo)
+    - https://github.com/maxcampolo/WeHungry
+
+Parse API:
+    - Sample: Login, register
+    - https://www.parse.com
+
+HCSStarRatingView:
+    - Rating
+    - https://github.com/hugocampossousa/HCSStarRatingView
+
+
+*/
