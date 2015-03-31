@@ -9,6 +9,7 @@
 #import "DetailViewController.h"
 #import "TableCell.h"
 #import "PostModel.h"
+#import "CoolButton.h"
 
 @interface DetailViewController ()
 @property (strong, nonatomic) IBOutlet UIImageView *thumbURL;
@@ -31,10 +32,15 @@
                                                                               style:UIBarButtonItemStylePlain
                                                                              target:self
                                                                              action:@selector(done)];
-//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"TakaPhoto"
+    UIImage* customImg = [UIImage imageNamed:@"yelp.png"];
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Yelp"
 //                                                                             style:UIBarButtonItemStylePlain
 //                                                                            target:self
-//                                                                            action:@selector(TakeAPhoto)];
+//                                                                            action:@selector(DirectToYelp)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:customImg
+                                                                              style:UIBarButtonItemStylePlain
+                                                                             target:self
+                                                                             action:@selector(DirectToYelp)];
     
     self.RestName.text = rest.name;
     [self downloadImageWithURL:[NSURL URLWithString:rest.thumbURL] completionBlock:^(BOOL succeeded, UIImage *image) {
@@ -113,6 +119,10 @@ float MilesToMeters(float miles) {
 
 #pragma mark -
 #pragma mark UINavigationBar-based actions
+
+-(void) DirectToYelp {
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+}
 
 -(void) done {
     NSLog(@"%s", __PRETTY_FUNCTION__);
@@ -339,6 +349,24 @@ float MilesToMeters(float miles) {
 
 - (IBAction)writeComment:(id)sender {
     [self post];
+}
+
+- (IBAction)hueValueChanged:(id)sender
+{
+    UISlider * slider = (UISlider *) sender;
+    self.coolButton.hue = slider.value;
+}
+
+- (IBAction)saturationValueChanged:(id)sender
+{
+    UISlider * slider = (UISlider *)sender;
+    self.coolButton.saturation = slider.value;
+}
+
+- (IBAction)brightnessValueChanged:(id)sender
+{
+    UISlider * slider = (UISlider *)sender;
+    self.coolButton.brightness = slider.value;
 }
 
 @end

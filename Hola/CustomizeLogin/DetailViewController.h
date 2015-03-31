@@ -19,6 +19,8 @@
 
 @end
 
+@class CoolButton;
+
 @interface DetailViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate, CLLocationManagerDelegate,UIImagePickerControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
@@ -39,5 +41,9 @@
 - (IBAction)openMap:(id)sender;
 - (IBAction)writeComment:(id)sender;
 
+@property (nonatomic, strong) IBOutlet CoolButton * coolButton;
+- (IBAction)hueValueChanged:(id)sender;
+- (IBAction)saturationValueChanged:(id)sender;
+- (IBAction)brightnessValueChanged:(id)sender;
 @end
 
